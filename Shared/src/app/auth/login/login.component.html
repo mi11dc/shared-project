@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Log In</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <form [formGroup]="loginForm" (ngSubmit)="submitForm()" novalidate>
+    <ion-item lines="full">
+      <ui-label [text]="'Email'" [position]="position"></ui-label>
+      <ui-input class="width-100"
+        [type]="'text'" [required]="true" formControlName="email"
+        [placeholder]="'Enter email'" (newValue)="setEmitData($event, 'email')"
+      ></ui-input>
+      <small *ngIf="isFormSubmit && f.email.errors">
+        <ui-span *ngIf="f.email.errors.required" [text]="'Email is required'" [color]="'danger'"></ui-span>
+        <ui-span *ngIf="f.email.errors.pattern" [text]="'Email is invalid'" [color]="'danger'"></ui-span>
+      </small>
+    </ion-item>
+    <ion-item lines="full">
+      <ui-label [text]="'Password'" [position]="position"></ui-label>
+      <ui-input class="width-100"
+        [type]="'password'" [required]="true" formControlName="password"
+        [placeholder]="'Enter password'" (newValue)="setEmitData($event, 'password')"
+      ></ui-input>
+      <small *ngIf="isFormSubmit && f.password.errors">
+        <ui-span *ngIf="f.password.errors.required" [text]="'Password is required'" [color]="'danger'"></ui-span>
+        <ui-span *ngIf="f.password.errors.pattern" [text]="'Password is invalid'" [color]="'danger'"></ui-span>
+      </small>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="primary" expand="block">Sign In</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
