@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { UiSharedModule } from '../ui-shared/ui-shared.module';
 import { AuthService } from './core/_services/auth.services';
+import { HomeComponent } from './home/home.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyDpjjXW9HEm_3R1AIPmd5xwgYDjYpPlrBM",
@@ -24,7 +25,8 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -42,7 +44,8 @@ const firebaseConfig = {
   ],
   exports: [
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   providers: [
     AuthService
