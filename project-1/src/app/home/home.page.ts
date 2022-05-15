@@ -54,4 +54,9 @@ export class HomePage implements OnInit {
     });
   }
 
+  logoutUser() {
+    localStorage.removeItem('res');
+    this.router.navigate(['/auth/login']);
+  }
+
 }
