@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../core/_services/auth.services';
 
@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isFormSubmit: boolean;
 
-  position = 'floating';
+  @Input() position = 'floating';
+  @Input() mode = "mode";
   @Output() loginApiOutput = new EventEmitter();
 
   emailValidation = "^(([^<>()\\[\\]\\\\.,;:\\s@\"]+(\\.[^<>()\\[\\]\\\\.,;:\\s@\"]+)*)|(\".+\"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";

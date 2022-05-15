@@ -1,46 +1,41 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Sign Up</ion-title>
-  </ion-toolbar>
-</ion-header>
 <ion-content>
   <form [formGroup]="signupForm" (ngSubmit)="submitForm()" novalidate>
-    <ion-item lines="full">
-      <ui-label [text]="'Email'" [position]="position"></ui-label>
-      <ui-input class="width-100"
+    <ion-item lines="full" [mode]="mode">
+      <ui-label [text]="'Email'" [position]="position" [mode]="mode"></ui-label>
+      <ui-input class="width-100" [mode]="mode"
         [type]="'text'" [required]="true" formControlName="email"
         [placeholder]="'Enter email'" (newValue)="setEmitData($event, 'email')"
       ></ui-input>
       <small *ngIf="isFormSubmit && f.email.errors">
-        <ui-span *ngIf="f.email.errors.required" [text]="'Email is required'" [color]="'danger'"></ui-span>
-        <ui-span *ngIf="f.email.errors.pattern" [text]="'Email is invalid'" [color]="'danger'"></ui-span>
+        <ui-span *ngIf="f.email.errors.required" [mode]="mode" [text]="'Email is required'" [color]="'danger'"></ui-span>
+        <ui-span *ngIf="f.email.errors.pattern" [mode]="mode" [text]="'Email is invalid'" [color]="'danger'"></ui-span>
       </small>
     </ion-item>
-    <ion-item lines="full">
-      <ui-label [text]="'Password'" [position]="position"></ui-label>
-      <ui-input class="width-100"
+    <ion-item lines="full" [mode]="mode">
+      <ui-label [text]="'Password'" [mode]="mode" [position]="position"></ui-label>
+      <ui-input class="width-100" [mode]="mode"
         [type]="'text'" [required]="true" formControlName="password"
         [placeholder]="'Enter password'" (newValue)="setEmitData($event, 'password')"
       ></ui-input>
       <small *ngIf="isFormSubmit && f.password.errors">
-        <ui-span *ngIf="f.password.errors.required" [text]="'Password is required'" [color]="'danger'"></ui-span>
-        <ui-span *ngIf="f.password.errors.pattern" [text]="'Password is invalid'" [color]="'danger'"></ui-span>
+        <ui-span *ngIf="f.password.errors.required" [mode]="mode" [text]="'Password is required'" [color]="'danger'"></ui-span>
+        <ui-span *ngIf="f.password.errors.pattern" [mode]="mode" [text]="'Password is invalid'" [color]="'danger'"></ui-span>
       </small>
     </ion-item>
-    <ion-item lines="full">
-      <ui-label [text]="'Confirm Password'" [position]="position"></ui-label>
-      <ui-input class="width-100"
+    <ion-item lines="full" [mode]="mode">
+      <ui-label [text]="'Confirm Password'" [mode]="mode" [position]="position"></ui-label>
+      <ui-input class="width-100" [mode]="mode"
         [type]="'password'" [required]="true" formControlName="confirm"
         [placeholder]="'Enter confirm password'" (newValue)="setEmitData($event, 'confirm')"
       ></ui-input>
       <small *ngIf="isFormSubmit && f.confirm.errors">
-        <ui-span *ngIf="f.confirm.errors.required" [text]="'Confirm Password is required'" [color]="'danger'"></ui-span>
-        <ui-span *ngIf="f.confirm.errors.mustMatch" [text]="'Confirm Password must match with password'" [color]="'danger'"></ui-span>
+        <ui-span *ngIf="f.confirm.errors.required" [mode]="mode" [text]="'Confirm Password is required'" [color]="'danger'"></ui-span>
+        <ui-span *ngIf="f.confirm.errors.mustMatch" [mode]="mode" [text]="'Confirm Password must match with password'" [color]="'danger'"></ui-span>
       </small>
     </ion-item>
     <ion-row>
       <ion-col>
-        <ion-button type="submit" color="primary" expand="block">Sign Up</ion-button>
+        <ion-button type="submit" color="primary" expand="block" [mode]="mode">Sign Up</ion-button>
       </ion-col>
     </ion-row>
   </form>

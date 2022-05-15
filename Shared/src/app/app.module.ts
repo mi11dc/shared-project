@@ -7,7 +7,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { UiSharedModule } from './ui-shared/ui-shared.module';
-import { AuthModule } from './auth/auth.module';
+import { SharedAuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { AuthModule } from './auth/auth.module';
     IonicModule.forRoot(), 
     AppRoutingModule, 
     UiSharedModule,
-    AuthModule
+    SharedAuthModule
   ],
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }

@@ -51,4 +51,4 @@ const firebaseConfig = {
     AuthService
   ]
 })
-export class AuthModule { }
+export class SharedAuthModule { }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'shared-home',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  @Input() mode = "mode";
   @Output() homeSelection = new EventEmitter();
 
   constructor() { }
