@@ -1,0 +1,14 @@
+<ion-header [translucent]="true" [mode]="mode">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Sign in
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content >
+  <ui-span [text]="errorMessage"></ui-span>
+  <shared-login (loginApiOutput)="onAPIOutput($event)" [mode]="mode"></shared-login>
+</ion-content>

@@ -1,0 +1,42 @@
+<ion-header [translucent]="true" [mode]="mode">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button>
+                <ion-back-button></ion-back-button>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>
+            Add Category
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <form [formGroup]="addCategoryForm" (ngSubmit)="submitForm()" novalidate>
+        <ion-item lines="full" [mode]="mode">
+            <ui-label [text]="'Title'" [position]="position" [mode]="mode"></ui-label>
+            <ui-input class="width-100" [mode]="mode"
+              [type]="'text'" [required]="true" formControlName="title"
+              [placeholder]="'Enter Title'" (newValue)="setEmitData($event, 'title')"
+            ></ui-input>
+            <small *ngIf="isFormSubmit && f.title.errors">
+                <ui-span *ngIf="f.title.errors.required" [mode]="mode" [text]="'Title is required'" [color]="'danger'"></ui-span>
+            </small>
+        </ion-item>
+        <ion-item lines="full" [mode]="mode">
+            <ui-label [text]="'Description'" [position]="position" [mode]="mode"></ui-label>
+            <ui-input class="width-100" [mode]="mode"
+              [type]="'text'" [required]="true" formControlName="description"
+              [placeholder]="'Enter Description'" (newValue)="setEmitData($event, 'description')"
+            ></ui-input>
+            <small *ngIf="isFormSubmit && f.description.errors">
+                <ui-span *ngIf="f.description.errors.required" [mode]="mode" [text]="'Description is required'" [color]="'danger'"></ui-span>
+            </small>
+        </ion-item>
+        <ion-row>
+            <ion-col>
+                <ion-button type="submit" color="primary" expand="block" [mode]="mode">Add Category</ion-button>
+            </ion-col>
+        </ion-row>
+    </form>
+</ion-content>
