@@ -1,0 +1,10 @@
+<ion-header [translucent]="true" [mode]="mode">
+  <ion-toolbar>
+    <ion-title>
+      Choose
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="auth-form" [fullscreen]="true">
+  <shared-home (homeSelection)="onBtnClick($event)" [mode]="mode"></shared-home>
+</ion-content>

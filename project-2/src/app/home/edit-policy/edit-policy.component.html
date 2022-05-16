@@ -6,16 +6,29 @@
             </ion-button>
         </ion-buttons>
         <ion-title>
-            Edit Category
+            Edit Policy
         </ion-title>
     </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-    <form [formGroup]="editCategoryForm" (ngSubmit)="submitForm()" novalidate>
+    <form [formGroup]="editPolicyForm" (ngSubmit)="submitForm()" novalidate>
+        <ion-item lines="full" [mode]="mode">
+            <ui-label [text]="'Select Category'" [position]="position" [mode]="mode" [color]="'medium'"></ui-label>
+            <ion-select [interface]="'popover'"
+                [mode]="mode" formControlName="category" [disabled]="true"
+                [value]="policyObj?.categoryObj?.key">
+                <ion-select-option [value]="cat.key" *ngFor="let cat of categories;">
+                    {{ cat.title }}
+                </ion-select-option>
+            </ion-select>
+            <small *ngIf="isFormSubmit && f.category.errors">
+                <ui-span *ngIf="f.category.errors.required" [mode]="mode" [text]="'Category is required'" [color]="'danger'"></ui-span>
+            </small>
+        </ion-item>
         <ion-item lines="full" [mode]="mode">
             <ui-label [text]="'Title'" [position]="position" [mode]="mode" [color]="'medium'"></ui-label>
-            <ui-input class="width-100" [mode]="mode" [readonly]="true" [value]="categoryTitle"
+            <ui-input class="width-100" [mode]="mode" [value]="policyObj?.name" [readonly]="true"
               [type]="'text'" [required]="true" formControlName="title" [color]="'medium'"
               [placeholder]="'Enter Title'" (newValue)="setEmitData($event, 'title')"
             ></ui-input>
@@ -25,7 +38,7 @@
         </ion-item>
         <ion-item lines="full" [mode]="mode">
             <ui-label [text]="'Description'" [position]="position" [mode]="mode"></ui-label>
-            <ui-input class="width-100" [mode]="mode" [value]="categoryDescription"
+            <ui-input class="width-100" [mode]="mode" [value]="policyObj?.description"
               [type]="'text'" [required]="true" formControlName="description"
               [placeholder]="'Enter Description'" (newValue)="setEmitData($event, 'description')"
             ></ui-input>
@@ -35,7 +48,7 @@
         </ion-item>
         <ion-row>
             <ion-col>
-                <ion-button type="submit" color="primary" expand="block" [mode]="mode">Edit Category</ion-button>
+                <ion-button type="submit" color="primary" expand="block" [mode]="mode">Edit Policy</ion-button>
             </ion-col>
         </ion-row>
     </form>
